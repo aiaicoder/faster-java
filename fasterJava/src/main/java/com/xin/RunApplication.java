@@ -1,6 +1,10 @@
 package com.xin;
 
+import com.xin.bean.TableInfo;
+import com.xin.builder.BuildPo;
 import com.xin.builder.BuildTable;
+
+import java.util.List;
 
 /**
  * @author <a href="https://github.com/aiaicoder">  小新
@@ -9,6 +13,9 @@ import com.xin.builder.BuildTable;
  */
 public class RunApplication {
     public static void main(String[] args) {
-        BuildTable.getTables();
+        List<TableInfo> tables = BuildTable.getTables();
+        for (TableInfo table : tables) {
+            BuildPo.execute(table);
+        }
     }
 }

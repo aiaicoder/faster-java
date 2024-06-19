@@ -14,7 +14,7 @@ public class FieldInfo {
     /**
      * bean字段类型
      */
-    private String propertyType;
+    private String propertyName;
     private String sqlType;
 
     /**
@@ -40,12 +40,12 @@ public class FieldInfo {
         this.fieldName = fieldName;
     }
 
-    public String getPropertyType() {
-        return propertyType;
+    public String getPropertyName() {
+        return propertyName;
     }
 
-    public void setPropertyType(String propertyType) {
-        this.propertyType = propertyType;
+    public void setpropertyName(String propertyName) {
+        this.propertyName = propertyName;
     }
 
     public String getSqlType() {
