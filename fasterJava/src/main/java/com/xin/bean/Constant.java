@@ -1,9 +1,6 @@
 package com.xin.bean;
 
 import com.xin.utils.PropertiesUtils;
-import jdk.internal.org.objectweb.asm.tree.MultiANewArrayInsnNode;
-
-import java.io.File;
 
 /**
  * @author <a href="https://github.com/aiaicoder">  小新
@@ -11,6 +8,9 @@ import java.io.File;
  * @date 2024/6/14 11:20
  */
 public class Constant {
+
+
+    public static String AUTHOR;
     /**
      * 是否忽略表前缀
      */
@@ -51,6 +51,7 @@ public class Constant {
         PATH_BASE = PATH_BASE.replace(".", "/");
         PATH_PO = PATH_BASE + "/" + PropertiesUtils.getProperty("package.po").replace(".","/");
         PACKAGE_PO = PACKAGE_BASE + "." + PropertiesUtils.getProperty("package.po");
+        AUTHOR = PropertiesUtils.getProperty("author.comment");
     }
 
     public final static String[] SQL_DATE_TIME_TYPES = new String[]{"datetime", "timestamp"};
