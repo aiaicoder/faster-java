@@ -59,7 +59,7 @@ public class BuildTable {
                 String tableName = tableResult.getString("name");
                 String comment = tableResult.getString("comment");
                 String beanName = tableName;
-                if (Constant.ignore_table_prefix) {
+                if (Constant.IGNORE_TABLE_PREFIX) {
                     //如何表名有没有下划线仅大写首字母
                     if (!beanName.contains("_")) {
                         beanName = stringUtils.upperFirst(beanName);
@@ -72,7 +72,7 @@ public class BuildTable {
                 tableInfo.setTableName(tableName);
                 tableInfo.setBeanName(beanName);
                 tableInfo.setComment(comment);
-                tableInfo.setBeanParamName(beanName + Constant.SUFFIX_BEAN_PARAM);
+                tableInfo.setBeanParamName(beanName + Constant.SUFFIX_BEAN_QUERY);
                 readFieldInfo(tableInfo);
                 //获取索引信息
                 getKeyInfo(tableInfo);
@@ -138,6 +138,7 @@ public class BuildTable {
                 fieldInfo.setAutoIncrement("auto_increment".equalsIgnoreCase(extra));
                 fieldInfo.setpropertyName(propertyName);
                 fieldInfo.setJavaType(processJavaType(type));
+                fieldInfo.setComment(comment);
                 //判断是否含有以上类型
                 if (ArrayUtils.contains(Constant.SQL_DATE_TIME_TYPES, type)) {
                     tableInfo.setHavaDateTime(true);

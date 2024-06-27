@@ -1,8 +1,7 @@
 package com.xin;
 
 import com.xin.bean.TableInfo;
-import com.xin.builder.BuildPo;
-import com.xin.builder.BuildTable;
+import com.xin.builder.*;
 
 import java.util.List;
 
@@ -14,8 +13,13 @@ import java.util.List;
 public class RunApplication {
     public static void main(String[] args) {
         List<TableInfo> tables = BuildTable.getTables();
+        BuildBase.build();
+        assert tables != null;
         for (TableInfo table : tables) {
             BuildPo.execute(table);
+            BuildQuery.execute(table);
+            BuildMapper.execute(table);
         }
+
     }
 }
